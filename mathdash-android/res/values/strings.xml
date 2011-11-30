@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="hello">Hello World, MathDashActivity!</string>
+	<!-- General -->
     <string name="app_name">Math Dash</string>
+    <string name="app_logo">+ - * /</string>
+	
+    <!-- Main Page -->
+    <string name="main_title">Math Dash</string>
+    <string name="main_high_score_label">High Score:</string>
+    <string name="main_high_score">0</string>
+    <string name="main_play_button">Play</string>
+    <string name="main_leaderboard_button">Leaderboard</string>
 
 </resources>
