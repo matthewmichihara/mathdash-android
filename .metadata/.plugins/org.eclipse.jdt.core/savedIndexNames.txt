@@ -1,3 +1,0 @@
-INDEX VERSION 1.126+/Users/matthewmichihara/Code/eclipse-workspaces/mathdash-android/.metadata/.plugins/org.eclipse.jdt.core
-4094339276.index
-610194580.index
