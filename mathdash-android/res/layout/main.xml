@@ -56,13 +56,13 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/playButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/main_play_button" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/leaderboardButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/main_leaderboard_button" />

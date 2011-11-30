@@ -10,5 +10,9 @@
     <string name="main_high_score">0</string>
     <string name="main_play_button">Play</string>
     <string name="main_leaderboard_button">Leaderboard</string>
+    
+    <!-- Game Page -->
+    <string name="game_time_remaining_label">Time Remaining:</string>
+    <string name="game_solved_label">Solved:</string>
 
 </resources>
