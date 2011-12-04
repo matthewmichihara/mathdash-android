@@ -1,5 +1,7 @@
 package com.fourpool;
 
+import java.text.MessageFormat;
+
 import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
@@ -30,16 +32,25 @@ public class GameActivity extends Activity {
         	}
         	
         	public void onFinish() {
-        		TextView timeRemainingTextView = (TextView)findViewById(R.id.gameTimeRemaining);
-        		timeRemainingTextView.setText("Done");
-        		Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
-        		intent.putExtra("correct", correct);
-        		intent.putExtra("total", total);
-        		startActivity(intent);
+        		showResultsScreen();
         	}
         }.start();
         
         refreshEquation();
+    }
+    
+    private void showResultsScreen() {
+    	setContentView(R.layout.results);
+    	
+		TextView correctTextView = (TextView)findViewById(R.id.results_correct);
+		correctTextView.setText(Integer.toString(correct));
+		
+		TextView totalTextView = (TextView)findViewById(R.id.results_total);
+		totalTextView.setText(Integer.toString(total));
+		
+		String accuracy = MessageFormat.format("{0,number,#.##%}", ((double)correct)/((double)total));
+		TextView accuracyTextView = (TextView)findViewById(R.id.results_accuracy);
+		accuracyTextView.setText(accuracy);
     }
     
     private void refreshEquation() {
