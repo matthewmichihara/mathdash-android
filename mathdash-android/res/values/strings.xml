@@ -21,5 +21,6 @@
     <string name="results_correct_label">Correct:</string>
     <string name="results_total_label">Total:</string>
     <string name="results_accuracy_label">Accuracy:</string>
+    <string name="results_score_label">Score:</string>
 
 </resources>

@@ -48,7 +48,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/main_high_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_high_score"

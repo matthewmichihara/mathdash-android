@@ -3,8 +3,7 @@ package com.fourpool;
 import java.text.MessageFormat;
 
 import android.app.Activity;
-import android.app.Application;
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -25,7 +24,7 @@ public class GameActivity extends Activity {
         setContentView(R.layout.game);
         
         // Set countdown
-        new CountDownTimer(5000, 1000) {
+        new CountDownTimer(10000, 1000) {
         	public void onTick(long millisUntilFinished) {
         		TextView timeRemainingTextView = (TextView)findViewById(R.id.gameTimeRemaining);
         		timeRemainingTextView.setText(Long.toString(millisUntilFinished/1000));
@@ -41,6 +40,19 @@ public class GameActivity extends Activity {
     
     private void showResultsScreen() {
     	setContentView(R.layout.results);
+    	
+    	int score = correct * 100;
+    	
+    	SharedPreferences sharedPreferences = getSharedPreferences("prefs", 0);
+    	int currentHighScore = sharedPreferences.getInt("current_highscore", 0);
+    	if (score > currentHighScore) {
+    		SharedPreferences.Editor sharedPreferencesEditor = sharedPreferences.edit();
+    		sharedPreferencesEditor.putInt("current_highscore", score);
+    		sharedPreferencesEditor.commit();
+    	}
+    	
+    	TextView scoreTextView = (TextView)findViewById(R.id.results_score);
+    	scoreTextView.setText(Integer.toString(score));
     	
 		TextView correctTextView = (TextView)findViewById(R.id.results_correct);
 		correctTextView.setText(Integer.toString(correct));
