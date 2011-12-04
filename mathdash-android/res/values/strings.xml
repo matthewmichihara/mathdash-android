@@ -14,5 +14,12 @@
     <!-- Game Page -->
     <string name="game_time_remaining_label">Time Remaining:</string>
     <string name="game_solved_label">Solved:</string>
+    
+    <!-- Results Page -->
+    <string name="results_title">Results</string>
+    <string name="results_correct">Correct</string>
+    <string name="results_correct_label">Correct:</string>
+    <string name="results_total_label">Total:</string>
+    <string name="results_accuracy_label">Accuracy:</string>
 
 </resources>

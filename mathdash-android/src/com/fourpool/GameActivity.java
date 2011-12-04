@@ -1,6 +1,8 @@
 package com.fourpool;
 
 import android.app.Activity;
+import android.app.Application;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -21,7 +23,7 @@ public class GameActivity extends Activity {
         setContentView(R.layout.game);
         
         // Set countdown
-        new CountDownTimer(30000, 1000) {
+        new CountDownTimer(5000, 1000) {
         	public void onTick(long millisUntilFinished) {
         		TextView timeRemainingTextView = (TextView)findViewById(R.id.gameTimeRemaining);
         		timeRemainingTextView.setText(Long.toString(millisUntilFinished/1000));
@@ -30,6 +32,10 @@ public class GameActivity extends Activity {
         	public void onFinish() {
         		TextView timeRemainingTextView = (TextView)findViewById(R.id.gameTimeRemaining);
         		timeRemainingTextView.setText("Done");
+        		Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
+        		intent.putExtra("correct", correct);
+        		intent.putExtra("total", total);
+        		startActivity(intent);
         	}
         }.start();
         
