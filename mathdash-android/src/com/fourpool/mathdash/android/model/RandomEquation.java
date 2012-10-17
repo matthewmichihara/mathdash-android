@@ -1,4 +1,4 @@
-package com.fourpool.model;
+package com.fourpool.mathdash.android.model;
 
 import java.util.Random;
 

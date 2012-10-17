@@ -1,4 +1,4 @@
-package com.fourpool;
+package com.fourpool.mathdash.android;
 
 import android.app.Activity;
 import android.content.Intent;

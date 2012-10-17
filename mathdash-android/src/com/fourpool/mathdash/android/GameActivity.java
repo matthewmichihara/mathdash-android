@@ -1,4 +1,4 @@
-package com.fourpool;
+package com.fourpool.mathdash.android;
 
 import java.text.MessageFormat;
 
@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.fourpool.model.RandomEquation;
+import com.fourpool.mathdash.android.model.RandomEquation;
 
 public class GameActivity extends Activity {
 	
