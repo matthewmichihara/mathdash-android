@@ -1,9 +1,7 @@
 package com.fourpool.mathdash.android;
 
-import java.text.MessageFormat;
-
 import android.app.Activity;
-import android.content.SharedPreferences;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -35,43 +33,15 @@ public class GameActivity extends Activity {
 
 			@Override
 			public void onFinish() {
-				showResultsScreen();
+				Intent intent = new Intent(GameActivity.this, ResultsActivity.class);
+				intent.putExtra("correct", correct);
+				intent.putExtra("total", total);
+				startActivity(intent);
+				finish();
 			}
 		}.start();
 
 		refreshEquation();
-	}
-
-	private void showResultsScreen() {
-		setContentView(R.layout.results);
-
-		int score = correct * 100;
-
-		SharedPreferences sharedPreferences = getSharedPreferences("prefs", 0);
-		int currentHighScore = sharedPreferences.getInt("current_highscore", 0);
-		if (score > currentHighScore) {
-			SharedPreferences.Editor sharedPreferencesEditor = sharedPreferences.edit();
-			sharedPreferencesEditor.putInt("current_highscore", score);
-			sharedPreferencesEditor.commit();
-		}
-
-		TextView scoreTextView = (TextView) findViewById(R.id.results_score);
-		scoreTextView.setText(Integer.toString(score));
-
-		TextView correctTextView = (TextView) findViewById(R.id.results_correct);
-		correctTextView.setText(Integer.toString(correct));
-
-		TextView totalTextView = (TextView) findViewById(R.id.results_total);
-		totalTextView.setText(Integer.toString(total));
-
-		// Prevent NaN.
-		double d = 0;
-		if (total != 0) {
-			d = ((double) correct) / ((double) total);
-		}
-		String accuracy = MessageFormat.format("{0,number,#.##%}", d);
-		TextView accuracyTextView = (TextView) findViewById(R.id.results_accuracy);
-		accuracyTextView.setText(accuracy);
 	}
 
 	private void refreshEquation() {
