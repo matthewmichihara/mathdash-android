@@ -2,23 +2,32 @@ package com.fourpool.mathdash.android;
 
 import java.text.MessageFormat;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class ResultsActivity extends Activity {
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.widget.ShareActionProvider;
+
+public class ResultsActivity extends SherlockActivity {
+
+	private int correct;
+	private int total;
+	private int score;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.results);
 
 		Intent intent = getIntent();
-		int correct = intent.getIntExtra("correct", 0);
-		int total = intent.getIntExtra("total", 0);
-
-		int score = correct * 100;
+		correct = intent.getIntExtra("correct", 0);
+		total = intent.getIntExtra("total", 0);
+		score = correct * 100;
 
 		SharedPreferences sharedPreferences = getSharedPreferences("prefs", 0);
 		int currentHighScore = sharedPreferences.getInt("current_highscore", 0);
@@ -47,4 +56,21 @@ public class ResultsActivity extends Activity {
 		accuracyTextView.setText(accuracy);
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getSupportMenuInflater();
+		inflater.inflate(R.menu.results, menu);
+
+		MenuItem menuItem = menu.findItem(R.id.menu_share);
+
+		ShareActionProvider mShareActionProvider = (ShareActionProvider) menuItem.getActionProvider();
+
+		Intent shareIntent = new Intent(Intent.ACTION_SEND);
+		shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+		shareIntent.setType("text/plain");
+
+		shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text, score));
+		mShareActionProvider.setShareIntent(shareIntent);
+		return true;
+	}
 }

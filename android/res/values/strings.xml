@@ -5,6 +5,10 @@
     <string name="app_name">Math Dash</string>
     <string name="app_logo">+ - * /</string>
 
+    <!-- Share -->
+    <string name="share">Share</string>
+    <string name="share_text">I just scored %1$d in Math Dash. Check it out! https://play.google.com/store/apps/details?id=com.fourpool.mathdash.android</string>
+
     <!-- Main Page -->
     <string name="main_title">Math Dash</string>
     <string name="main_high_score_label">High Score:</string>
