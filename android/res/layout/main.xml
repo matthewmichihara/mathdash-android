@@ -65,6 +65,7 @@
         android:id="@+id/leaderboardButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:enabled="false"
         android:text="@string/main_leaderboard_button" />
 
 </LinearLayout>
