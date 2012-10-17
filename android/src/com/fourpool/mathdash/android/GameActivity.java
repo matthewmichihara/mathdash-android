@@ -64,7 +64,12 @@ public class GameActivity extends Activity {
 		TextView totalTextView = (TextView) findViewById(R.id.results_total);
 		totalTextView.setText(Integer.toString(total));
 
-		String accuracy = MessageFormat.format("{0,number,#.##%}", ((double) correct) / ((double) total));
+		// Prevent NaN.
+		double d = 0;
+		if (total != 0) {
+			d = ((double) correct) / ((double) total);
+		}
+		String accuracy = MessageFormat.format("{0,number,#.##%}", d);
 		TextView accuracyTextView = (TextView) findViewById(R.id.results_accuracy);
 		accuracyTextView.setText(accuracy);
 	}
