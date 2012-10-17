@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="Theme.MathDash" parent="Theme.Sherlock">
+        <item name="android:actionBarStyle">@style/ActionBar</item>
+    </style>
+
+    <style name="ActionBar" parent="Widget.Sherlock.ActionBar">
+        <item name="android:displayOptions">showHome</item>
+        <item name="android:background">@color/light_blue</item>
+    </style>
+
+</resources>
