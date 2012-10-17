@@ -1,6 +1,5 @@
 package com.fourpool.mathdash.android;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -8,9 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.actionbarsherlock.app.SherlockActivity;
 import com.fourpool.mathdash.android.model.RandomEquation;
 
-public class GameActivity extends Activity {
+public class GameActivity extends SherlockActivity {
 
 	private int correct = 0;
 	private int total = 0;
